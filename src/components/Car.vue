@@ -1,13 +1,9 @@
 <template>
- 
     <h2>Coche</h2>
     <p>Modelo: {{ brand }}</p>
     <p>Color: {{ colors[1] }}</p>
     <p>
       Color:
-      <!-- <span v-for="(color, i) in colors" :key="i">
-        {{ i }}: {{ color }} -
-      </span> -->
       <ul>
        <li v-for="(color, i) in colors" :key="i">{{ i }}: {{ color }}</li>
       </ul>

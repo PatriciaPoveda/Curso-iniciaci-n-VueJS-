@@ -3,21 +3,24 @@
   <p>Marca: {{ brand }}</p>
   <p>Modelo: {{ model }}</p>
   <p>Power: {{ power }}</p>
-  <button @click="upPower">Aumentar</button>
-  <button @click="downPower(300)">Disminuir</button>
+  <button @click="upPower(20)">Aumentar</button>
+  <button @click="downPower">Disminuir</button>
 </template>
 
 <script>
+  import { ref } from "vue";
   export default {
     setup() {
       const brand = "Audi";
       const model = "A4";
-      const power = 40;
-      const upPower = () => {
-        console.log("aumentar");
+      let power = ref(40);
+      const upPower = (newPower) => {
+        power.value = newPower + power.value;
+        // console.log("aumentar " + power.value);
       };
-      const downPower = (newPower) => {
-        console.log("disminuir potencia --> " + newPower);
+      const downPower = () => {
+        power.value--;
+        // console.log("disminuir " + power.value);
       };
 
       return {
